@@ -10,6 +10,8 @@ func main() {
 	extender := (&Extender{}).Init(*certificate)
 	params := extender.GetParams(config.snxGateway, config.snxPrefix, config.snxRealm)
 
+	iferr(token.context.Close())
+
 	snx := &SNX{
 		SnxPath: config.snxPath,
 		Params:  *params,
